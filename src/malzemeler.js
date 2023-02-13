@@ -1,4 +1,4 @@
-const malzemeler = [
+const Malzemeler = [
   {
     id: "birinciMalzeme",
     name: "malzeme1",
@@ -31,4 +31,4 @@ const malzemeler = [
   },
 ];
 
-export default malzemeler;
+export default Malzemeler;

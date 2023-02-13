@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import malzemeler from "./malzemeler";
+import Malzemeler from "./Malzemeler";
 import SiparisOlusturma from "./SiparisOlusturma";
 import Phone from "./Phone";
 
@@ -86,7 +86,7 @@ export default function Form(props) {
             backgroundColor: "#e6a165",
           }}
         >
-          <p>
+          <div>
             <SCLabel data-cy="labelİsim" htmlFor="name-input">
               İsim:{" "}
             </SCLabel>
@@ -99,7 +99,7 @@ export default function Form(props) {
               onChange={(event) => handleChange(event)}
               data-cy="inputİsim"
             />
-          </p>
+          </div>
           <SCError data-cy="errorİsim">{errors.isim}</SCError>
         </SCContainer>
         <SCContainer
@@ -109,7 +109,7 @@ export default function Form(props) {
             backgroundColor: "#e6a165",
           }}
         >
-          <p>
+          <div>
             <SCLabel
               style={{ display: "flex" }}
               data-cy="labelAdres"
@@ -128,7 +128,7 @@ export default function Form(props) {
               onChange={(event) => handleChange(event)}
               data-cy="inputAdres"
             />
-          </p>
+          </div>
           <SCError data-cy="errorAdres">{errors.adres}</SCError>
         </SCContainer>
         <SCContainer
@@ -138,7 +138,7 @@ export default function Form(props) {
             backgroundColor: "#e6a165",
           }}
         >
-          <p>
+          <div>
             <SCText>Pizza Boyutu:</SCText>
             <select
               id="size-dropdown"
@@ -147,12 +147,20 @@ export default function Form(props) {
               onChange={(event) => handleChange(event)}
               data-cy="boyutSeçin"
             >
-              <option value="">--Boyut Seçin--</option>
-              <option value="Küçük">Küçük</option>
-              <option value="Orta">Orta</option>
-              <option value="Büyük">Büyük</option>
+              <option id="boyutSecin" value="">
+                --Boyut Seçin--
+              </option>
+              <option id="kucuk" value="Küçük">
+                Küçük
+              </option>
+              <option id="orta" value="Orta">
+                Orta
+              </option>
+              <option id="buyuk" value="Büyük">
+                Büyük
+              </option>
             </select>
-          </p>
+          </div>
           <SCError data-cy="errorBoyut">{errors.boyut}</SCError>
         </SCContainer>
         <SCContainer
@@ -162,7 +170,7 @@ export default function Form(props) {
             backgroundColor: "#e6a165",
           }}
         >
-          <p>
+          <div>
             <SCText>Pizza Çeşitleri:</SCText>
             <select
               id="pizzaType-input"
@@ -171,18 +179,26 @@ export default function Form(props) {
               onChange={(event) => handleChange(event)}
               data-cy="inputPizza"
             >
-              <option style={{ textAlign: "center" }} value="">
+              <option style={{ textAlign: "center" }} id="cesitSecin" value="">
                 -------Çeşit Seçiniz-------
               </option>
-              <option value="Margarita Pizza">Margarita Pizza</option>
-              <option value="Pepperoni Pizza">Pepperoni Pizza</option>
-              <option value="4 Peynirli Pizza">4 Peynirli Pizza</option>
-              <option value="Supreme Pizza">Supreme Pizza</option>
-              <option value="Barbekü Tavuklu Pizza">
+              <option id="margaritaPizza" value="Margarita Pizza">
+                Margarita Pizza
+              </option>
+              <option id="pepperoniPizza" value="Pepperoni Pizza">
+                Pepperoni Pizza
+              </option>
+              <option id="4PeynirliPizza" value="4 Peynirli Pizza">
+                4 Peynirli Pizza
+              </option>
+              <option id="supremePizza" value="Supreme Pizza">
+                Supreme Pizza
+              </option>
+              <option id="barbekuTavukluPizza" value="Barbekü Tavuklu Pizza">
                 Barbekü Tavuklu Pizza
               </option>
             </select>
-          </p>
+          </div>
           <SCError data-cy="errorPizza">{errors.cesit}</SCError>
         </SCContainer>
         <SCContainer
@@ -195,9 +211,9 @@ export default function Form(props) {
           <SCText>
             Ekstra Malzemeler: <SCOptional>(İsteğe Bağlı)</SCOptional>
           </SCText>
-          <p>
-            {malzemeler.map((event) => (
-              <p>
+          <div>
+            {Malzemeler.map((event) => (
+              <div>
                 <input
                   id={event.id}
                   type="checkbox"
@@ -207,9 +223,9 @@ export default function Form(props) {
                   onChange={(event) => handleChange(event)}
                 />
                 <SCChecked htmlFor={event.id}>{event.malzemeAdi}</SCChecked>
-              </p>
+              </div>
             ))}
-          </p>
+          </div>
         </SCContainer>
         <SCContainer
           style={{
@@ -255,15 +271,15 @@ export default function Form(props) {
             backgroundColor: "#e6a165",
           }}
         >
-          <p>
+          <div>
             <SCLabel>
               Telefon Numarası: <SCOptional>(İsteğe Bağlı)</SCOptional>
               <Phone />
             </SCLabel>
-          </p>
+          </div>
         </SCContainer>
         <SCContainer>
-          <p>
+          <div>
             <SCSubmit
               type="submit"
               id="order-button"
@@ -272,7 +288,7 @@ export default function Form(props) {
             >
               Siparişlere Ekle
             </SCSubmit>
-          </p>
+          </div>
         </SCContainer>
         <SCOrder
           style={{
@@ -281,9 +297,7 @@ export default function Form(props) {
             backgroundColor: "#e6a165",
           }}
         >
-          <alert>
-            <SiparisOlusturma siparis={siparis} />
-          </alert>
+          <SiparisOlusturma siparis={siparis} />
         </SCOrder>
       </SCForm>
     </>
