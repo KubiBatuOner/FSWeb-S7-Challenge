@@ -44,8 +44,8 @@ const SCOptional = styled.span`
   font-size: 10px;
 `;
 const SCOrder = styled.div`
-  width: 40%;
-  padding: 20px;
+  width: 20%;
+  padding: 20px 45px;
   margin: 5px;
   color: black;
   font-weight: 500;
@@ -73,7 +73,7 @@ export default function Form(props) {
           style={{
             border: "2px solid black",
             borderRadius: "20px",
-            padding: "20px",
+            padding: "20px 50px",
             backgroundColor: "#e6a165",
           }}
         >
@@ -84,6 +84,7 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 70px",
           }}
         >
           <div>
@@ -96,6 +97,7 @@ export default function Form(props) {
               type="text"
               placeholder="İsim"
               value={formData.isim}
+              style={{ borderRadius: "5px" }}
               onChange={(event) => handleChange(event)}
               data-cy="inputİsim"
             />
@@ -111,7 +113,7 @@ export default function Form(props) {
         >
           <div>
             <SCLabel
-              style={{ display: "flex" }}
+              style={{ display: "flex", marginBottom: "10px" }}
               data-cy="labelAdres"
               htmlFor="address-input"
             >
@@ -124,6 +126,7 @@ export default function Form(props) {
               placeholder="Adres"
               cols="40"
               rows="5"
+              style={{ borderRadius: "10px" }}
               value={formData.adres}
               onChange={(event) => handleChange(event)}
               data-cy="inputAdres"
@@ -136,14 +139,16 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 70px",
           }}
         >
           <div>
-            <SCText>Pizza Boyutu:</SCText>
+            <SCText>Pizza Boyutu: </SCText>
             <select
               id="size-dropdown"
               name="boyut"
               value={formData.boyut}
+              style={{ borderRadius: "10px" }}
               onChange={(event) => handleChange(event)}
               data-cy="boyutSeçin"
             >
@@ -168,14 +173,16 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 43px",
           }}
         >
           <div>
-            <SCText>Pizza Çeşitleri:</SCText>
+            <SCText>Pizza Çeşitleri: </SCText>
             <select
               id="pizzaType-input"
               name="cesit"
               value={formData.cesit}
+              style={{ borderRadius: "10px" }}
               onChange={(event) => handleChange(event)}
               data-cy="inputPizza"
             >
@@ -206,6 +213,7 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 75px",
           }}
         >
           <SCText>
@@ -213,7 +221,7 @@ export default function Form(props) {
           </SCText>
           <div>
             {Malzemeler.map((event) => (
-              <div>
+              <div style={{ marginTop: "10px" }}>
                 <input
                   id={event.id}
                   type="checkbox"
@@ -232,6 +240,7 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 9px",
           }}
         >
           <SCLabel htmlFor="special-text">
@@ -242,6 +251,7 @@ export default function Form(props) {
             name="özel"
             type="text"
             value={formData.özel}
+            style={{ borderRadius: "10px" }}
             onChange={(event) => handleChange(event)}
             placeholder="Sipariş notu"
           />
@@ -251,6 +261,7 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 41px",
           }}
         >
           <SCLabel htmlFor="orderNumber-input">Sipariş Sayısı: </SCLabel>
@@ -259,6 +270,7 @@ export default function Form(props) {
             name="siparisSayisi"
             type="number"
             value={formData.siparisSayisi}
+            style={{ borderRadius: "5px" }}
             onChange={(event) => handleChange(event)}
             data-cy="inputSiparisSayisi"
           />
@@ -269,6 +281,7 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 75px",
           }}
         >
           <div>
@@ -284,6 +297,7 @@ export default function Form(props) {
               type="submit"
               id="order-button"
               disabled={buttonDisable}
+              style={{ borderRadius: "10px" }}
               data-cy="buttonOrder"
             >
               Siparişlere Ekle
@@ -295,6 +309,7 @@ export default function Form(props) {
             border: "2px solid black",
             borderRadius: "20px",
             backgroundColor: "#e6a165",
+            padding: "20px 45px",
           }}
         >
           <SiparisOlusturma siparis={siparis} />
